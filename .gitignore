@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# markdown docs (CLAUDE.md, AGENTS.md, TASK-*.md, README.md, etc.)
+*.md
+
 # debug
 npm-debug.log*
 yarn-debug.log*
