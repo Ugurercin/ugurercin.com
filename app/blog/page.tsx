@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description: "Thoughts, updates, and stories from UE Software.",
 };
-
+//Te
 export default function BlogPage() {
   const posts = getAllPosts();
 
