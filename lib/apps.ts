@@ -3,6 +3,7 @@ import type { App } from "@/types";
 export const apps: App[] = [
   {
     slug: "quite-wins",
+    featured: true,
     name: "Quite Wins",
     tagline: "Track small wins. Watch your garden grow.",
     description:
@@ -51,7 +52,7 @@ export const apps: App[] = [
       },
     ],
     privacy: {
-      collectsData: true,
+      collectsData: false,
       usesTracking: false,
       thirdPartySDKs: ["RevenueCat"],
       requiresAccount: false,

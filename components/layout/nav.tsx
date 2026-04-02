@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { NAV_ITEMS, SITE_NAME } from "@/constants/site";
 import NavMobile from "./nav-mobile";
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -19,15 +22,29 @@ export default function Nav() {
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-lg px-3 py-1.5 text-sm text-white/60 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href + "/"));
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="relative px-3 py-1.5 text-sm rounded-lg transition-colors"
+                >
+                  <span className={isActive ? "text-white" : "text-white/60 hover:text-white"}>
+                    {item.label}
+                  </span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-indicator"
+                      className="absolute -bottom-0.5 left-2 right-2 h-px bg-amber-400"
+                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <Link

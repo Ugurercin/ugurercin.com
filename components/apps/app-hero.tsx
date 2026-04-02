@@ -1,7 +1,11 @@
+"use client";
+
+import { motion } from "framer-motion";
 import type { App } from "@/types";
 import AppIcon from "@/components/ui/app-icon";
 import PlatformBadge from "@/components/ui/platform-badge";
 import DownloadButton from "@/components/ui/download-button";
+import { EASE_OUT_EXPO, DUR_SLOW } from "@/lib/motion";
 
 interface AppHeroProps {
   app: App;
@@ -10,7 +14,13 @@ interface AppHeroProps {
 export default function AppHero({ app }: AppHeroProps) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-      <AppIcon icon={app.icon} gradient={app.iconGradient} size="lg" />
+      <motion.div
+        layoutId={`app-icon-${app.slug}`}
+        className="will-animate"
+        transition={{ duration: DUR_SLOW, ease: EASE_OUT_EXPO }}
+      >
+        <AppIcon icon={app.icon} gradient={app.iconGradient} size="lg" />
+      </motion.div>
 
       <div className="flex flex-col gap-3">
         <div>

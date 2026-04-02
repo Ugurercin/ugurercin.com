@@ -21,6 +21,7 @@ export interface App {
   downloads?: string;
   rating?: number;
   screenshots: string[];
+  featured?: boolean;
   appStoreUrl?: string;
   playStoreUrl?: string;
   features: {

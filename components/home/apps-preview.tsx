@@ -1,23 +1,19 @@
-import Link from "next/link";
-import { apps } from "@/lib/apps";
-import SectionLabel from "@/components/ui/section-label";
+"use client";
+import { useAppFilter } from "@/hooks/use-app-filter";
+import AppFilterBar from "@/components/home/app-filter-bar";
 import AppGrid from "@/components/apps/app-grid";
+import SectionLabel from "@/components/ui/section-label";
 
 export default function AppsPreview() {
-  const featured = apps.slice(0, 6);
+  const { activeFilter, setFilter, filteredApps } = useAppFilter();
 
   return (
     <section className="mx-auto w-full max-w-5xl px-4 pb-20 sm:px-6 md:px-8">
-      <div className="mb-6 flex items-center justify-between">
-        <SectionLabel>Featured apps</SectionLabel>
-        <Link
-          href="/apps"
-          className="text-xs text-white/40 transition-colors hover:text-white/70"
-        >
-          View all →
-        </Link>
+      <div className="mb-4 flex items-center justify-between">
+        <SectionLabel>All Apps</SectionLabel>
       </div>
-      <AppGrid apps={featured} />
+      <AppFilterBar activeFilter={activeFilter} onFilter={setFilter} />
+      <AppGrid apps={filteredApps} />
     </section>
   );
 }

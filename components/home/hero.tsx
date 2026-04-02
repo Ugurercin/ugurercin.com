@@ -1,25 +1,12 @@
 import Link from "next/link";
-import { apps } from "@/lib/apps";
-
-function totalDownloads() {
-  const nums = apps
-    .filter((a) => a.downloads)
-    .map((a) => parseInt(a.downloads!.replace(/[^0-9]/g, "")));
-  const sum = nums.reduce((acc, n) => acc + n, 0);
-  return sum > 0 ? `${sum}k+` : "—";
-}
-
-function avgRating() {
-  const rated = apps.filter((a) => a.rating !== undefined);
-  if (!rated.length) return "—";
-  const avg = rated.reduce((acc, a) => acc + a.rating!, 0) / rated.length;
-  return avg.toFixed(1);
-}
+import HeroStats from "@/components/home/hero-stats";
+import HeroGlow from "@/components/home/hero-glow";
 
 export default function Hero() {
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 pb-20 pt-20 sm:px-6 sm:pt-28 md:px-8">
-      <div className="flex flex-col gap-6">
+    <section className="relative mx-auto w-full max-w-5xl px-4 pb-20 pt-20 sm:px-6 sm:pt-28 md:px-8">
+      <HeroGlow />
+      <div className="relative z-10 flex flex-col gap-6">
         <div className="flex">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-400">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
@@ -55,33 +42,9 @@ export default function Hero() {
           </Link>
         </div>
 
-        <div className="mt-4 grid grid-cols-3 border-t border-white/[0.08] pt-6">
-          <div className="flex flex-col gap-0.5">
-            <span className="text-xl font-semibold text-white sm:text-2xl">
-              {apps.length}
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-white/30">
-              Apps
-            </span>
-          </div>
-          <div className="flex flex-col gap-0.5">
-            <span className="text-xl font-semibold text-white sm:text-2xl">
-              {totalDownloads()}
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-white/30">
-              Downloads
-            </span>
-          </div>
-          <div className="flex flex-col gap-0.5">
-            <span className="text-xl font-semibold text-white sm:text-2xl">
-              {avgRating()} ★
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-white/30">
-              Avg rating
-            </span>
-          </div>
-        </div>
+        <HeroStats />
       </div>
     </section>
   );
 }
+

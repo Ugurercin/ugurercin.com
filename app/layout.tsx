@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Inter } from "next/font/google";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
+import PageTransition from "@/components/motion/page-transition";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/constants/site";
 import "./globals.css";
 
@@ -44,7 +45,9 @@ export default function RootLayout({
         style={{ backgroundColor: "#0a0a0f", color: "white" }}
       >
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>
