@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(npm install:*)",
-      "Bash(npx shadcn@latest add card input badge separator --yes)",
-      "Bash(npm run:*)"
-    ]
-  }
-}
