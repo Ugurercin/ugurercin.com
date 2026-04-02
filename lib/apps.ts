@@ -66,6 +66,71 @@ export const apps: App[] = [
       lastUpdated: "April 2026",
     },
   },
+  {
+    slug: "drone-wars",
+    name: "Drone Wars",
+    tagline: "Survive the swarm. Dominate the galaxy.",
+    description:
+      "Drone Wars is a fast-paced space shooter where you pilot a lone fighter against endless waves of enemy drones. Dodge, blast, and outlast increasingly brutal swarms across deep space. Simple controls, brutal difficulty, one more run.",
+    category: "Games",
+    icon: "🚀",
+    iconGradient: ["from-violet-500", "to-indigo-600"],
+    platforms: ["ios", "android"],
+    price: "Free",
+    version: "1.0.0",
+    downloads: "5k+",
+    rating: 4.7,
+    featured: false,
+    screenshots: [],
+    appStoreUrl: "",
+    playStoreUrl: "",
+    features: [
+      {
+        icon: "🎮",
+        title: "One-thumb controls",
+        description: "Tap and drag to move. Simple to learn, hard to master.",
+      },
+      {
+        icon: "🌊",
+        title: "Endless waves",
+        description: "Procedurally generated enemy swarms that never repeat.",
+      },
+      {
+        icon: "💥",
+        title: "Power-ups",
+        description: "Collect weapons and shields to turn the tide.",
+      },
+      {
+        icon: "🏆",
+        title: "Leaderboards",
+        description: "Compete for the highest score with Game Center.",
+      },
+      {
+        icon: "🎵",
+        title: "Original soundtrack",
+        description: "Pulse-pounding music that reacts to gameplay intensity.",
+      },
+      {
+        icon: "🔒",
+        title: "No ads, no trackers",
+        description: "Pure gameplay. No interruptions, no data collection.",
+      },
+    ],
+    privacy: {
+      collectsData: false,
+      usesTracking: false,
+      requiresAccount: false,
+      worksOffline: true,
+      notes: [
+        "Drone Wars does not collect, store, or transmit any personal data.",
+        "We do not use any third-party analytics, advertising SDKs, or tracking tools.",
+        "No account or sign-in is required. The game works entirely offline.",
+        "Leaderboard scores are submitted to Apple Game Center only — governed by Apple's privacy policy.",
+        "Deleting the app removes all local data permanently.",
+      ],
+      lastUpdated: "January 2026",
+    },
+  },
 ];
 
 export function getAppBySlug(slug: string): App | undefined {

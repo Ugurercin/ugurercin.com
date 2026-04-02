@@ -48,10 +48,10 @@ export default function Nav() {
           </nav>
 
           <Link
-            href="/apps"
+            href="/contact"
             className="hidden rounded-xl bg-amber-400 px-3 py-1.5 text-sm font-medium text-black transition-colors hover:bg-amber-300 md:block"
           >
-            Browse apps
+            Contact
           </Link>
 
           <button

@@ -7,7 +7,7 @@ export const NAV_ITEMS = [
   { label: "Apps", href: "/apps" },
   { label: "Blog", href: "/blog" },
   { label: "Changelog", href: "/changelog" },
-  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const SOCIAL_LINKS = [

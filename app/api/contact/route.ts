@@ -11,8 +11,9 @@ export async function POST(req: Request) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: "hello@uesoftware.com",
+      from: "UE Software <onboarding@resend.dev>",
+      to: "ue.software@gmail.com",
+      replyTo: email,
       subject: `New message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
     });

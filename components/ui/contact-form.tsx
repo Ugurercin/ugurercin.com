@@ -6,9 +6,10 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-6 text-center">
-        <p className="text-sm text-green-400 font-medium">Message sent!</p>
-        <p className="text-xs text-white/40 mt-1">I'll get back to you soon.</p>
+      <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-8 text-center">
+        <div className="text-2xl mb-3">🌱</div>
+        <p className="text-sm font-medium text-green-400">Message sent!</p>
+        <p className="text-xs text-white/40 mt-1">I'll get back to you as soon as I can.</p>
       </div>
     );
   }
@@ -46,11 +47,11 @@ export default function ContactForm() {
       )}
       <button
         onClick={handleSubmit}
-        disabled={status === "loading"}
-        className="self-start px-5 py-2.5 rounded-xl bg-amber-400 text-black text-sm font-medium
-          hover:bg-amber-300 transition-colors disabled:opacity-50"
+        disabled={status === "loading" || !fields.name || !fields.email || !fields.message}
+        className="self-start px-6 py-3 rounded-xl bg-amber-400 text-black text-sm font-medium
+          hover:bg-amber-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        {status === "loading" ? "Sending..." : "Send message"}
+        {status === "loading" ? "Sending..." : "Send message →"}
       </button>
     </div>
   );

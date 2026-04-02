@@ -17,6 +17,7 @@ export function useContact() {
     setFields((prev) => ({ ...prev, [key]: value }));
 
   const handleSubmit = async () => {
+    if (!fields.name || !fields.email || !fields.message) return;
     setStatus("loading");
     try {
       const res = await fetch("/api/contact", {
