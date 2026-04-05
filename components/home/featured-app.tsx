@@ -2,7 +2,6 @@ import Link from "next/link";
 import { apps } from "@/lib/apps";
 import AppIcon from "@/components/ui/app-icon";
 import PlatformBadge from "@/components/ui/platform-badge";
-import DownloadButton from "@/components/ui/download-button";
 import SectionLabel from "@/components/ui/section-label";
 
 export default function FeaturedApp() {
@@ -40,15 +39,15 @@ export default function FeaturedApp() {
                 {app.platforms.map((p) => (
                   <PlatformBadge key={p} platform={p} />
                 ))}
+                {app.platformsComingSoon?.map((p) => (
+                  <PlatformBadge key={p} platform={p} comingSoon />
+                ))}
               </div>
             </div>
-            <div className="flex flex-col gap-2 sm:items-end w-full sm:w-auto">
-              {app.appStoreUrl && (
-                <DownloadButton store="appstore" url={app.appStoreUrl} />
-              )}
-              {app.playStoreUrl && (
-                <DownloadButton store="playstore" url={app.playStoreUrl} />
-              )}
+            <div className="sm:items-end">
+              <span className="text-xs text-amber-400/70 font-medium">
+                View app →
+              </span>
             </div>
           </div>
         </div>

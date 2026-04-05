@@ -39,6 +39,9 @@ export default function AppCard({ app }: AppCardProps) {
             {app.platforms.map((p) => (
               <PlatformBadge key={p} platform={p} />
             ))}
+            {app.platformsComingSoon?.map((p) => (
+              <PlatformBadge key={p} platform={p} comingSoon />
+            ))}
           </div>
         </div>
       </motion.div>

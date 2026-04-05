@@ -34,6 +34,9 @@ export default function AppHero({ app }: AppHeroProps) {
           {app.platforms.map((p) => (
             <PlatformBadge key={p} platform={p} />
           ))}
+          {app.platformsComingSoon?.map((p) => (
+            <PlatformBadge key={p} platform={p} comingSoon />
+          ))}
           <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-medium text-white/40">
             {app.price}
           </span>

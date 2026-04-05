@@ -1,24 +1,20 @@
 "use client";
 
+interface FilterOption {
+  label: string;
+  value: string;
+}
+
 interface Props {
   activeFilter: string;
   onFilter: (value: string) => void;
+  filters: FilterOption[];
 }
 
-const FILTERS = [
-  { label: "All", value: "all" },
-  { label: "iOS", value: "ios" },
-  { label: "Android", value: "android" },
-  { label: "Productivity", value: "Productivity" },
-  { label: "Wellness", value: "Wellness" },
-  { label: "Games", value: "Games" },
-  { label: "Utilities", value: "Utilities" },
-];
-
-export default function AppFilterBar({ activeFilter, onFilter }: Props) {
+export default function AppFilterBar({ activeFilter, onFilter, filters }: Props) {
   return (
     <div className="flex gap-2 flex-wrap mb-6 overflow-x-auto pb-1">
-      {FILTERS.map((f) => (
+      {filters.map((f) => (
         <button
           key={f.value}
           onClick={() => onFilter(f.value)}

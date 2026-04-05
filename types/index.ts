@@ -16,6 +16,7 @@ export interface App {
   icon: string;
   iconGradient: [string, string];
   platforms: Platform[];
+  platformsComingSoon?: Platform[];
   price: "Free" | string;
   version: string;
   downloads?: string;
